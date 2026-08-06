@@ -1,0 +1,333 @@
+/* ===== $10,000 LANDING PAGE STYLING (HOME.CSS) ===== */
+.home-page-wrap {
+  background: #0b0c10;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* Signature Section */
+.home-signature-section {
+  padding: 5rem 1.5rem;
+  background: radial-gradient(circle at 50% 0%, rgba(253, 244, 59, 0.08) 0%, rgba(11, 12, 16, 1) 70%);
+  position: relative;
+}
+
+.signature-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(253, 244, 59, 0.1);
+  border: 1px solid rgba(253, 244, 59, 0.3);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--yellow);
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.signature-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.signature-subtitle-gradient {
+  background: linear-gradient(135deg, var(--yellow) 0%, #ffe066 50%, #ff9800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.signature-desc {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+/* Signature Grid */
+.signature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.signature-card {
+  background: rgba(18, 20, 29, 0.85);
+  border: 1.5px solid rgba(253, 244, 59, 0.25);
+  border-radius: 24px;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+}
+
+.signature-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--yellow);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(253, 244, 59, 0.25);
+}
+
+.signature-card-media {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+}
+
+.signature-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.signature-card:hover .signature-img {
+  transform: scale(1.08);
+}
+
+.signature-tag-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(11, 12, 16, 0.85);
+  border: 1px solid rgba(253, 244, 59, 0.4);
+  border-radius: 30px;
+  font-size: 0.775rem;
+  font-weight: 800;
+  color: var(--yellow);
+  backdrop-filter: blur(12px);
+}
+
+.signature-price-badge {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.4rem 1rem;
+  background: var(--yellow);
+  color: #0b0c10;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 900;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Card Body */
+.signature-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.signature-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.star-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  background: rgba(253, 244, 59, 0.15);
+  border-radius: 12px;
+  font-size: 0.775rem;
+  font-weight: 800;
+  color: var(--yellow);
+}
+
+.reviews-count {
+  font-size: 0.775rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.item-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+  line-height: 1.35;
+}
+
+.item-desc {
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.signature-card-footer {
+  margin-top: auto;
+}
+
+.btn-signature-add {
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--yellow) 0%, #f1c40f 100%);
+  color: #0b0c10;
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(253, 244, 59, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-signature-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(253, 244, 59, 0.55);
+}
+
+.btn-signature-add.added {
+  background: #22c55e;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+}
+
+/* Home Menu Banner */
+.home-menu-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  background: linear-gradient(135deg, rgba(22, 24, 33, 0.9) 0%, rgba(11, 12, 16, 0.95) 100%);
+  border: 1.5px solid rgba(253, 244, 59, 0.35);
+  border-radius: 28px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  flex-wrap: wrap;
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.banner-icon-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(253, 244, 59, 0.15);
+  border: 1px solid rgba(253, 244, 59, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.banner-text h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.banner-text p {
+  font-size: 0.925rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.banner-btn {
+  padding: 0.95rem 2rem;
+  border-radius: 50px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+/* Trust Bar */
+.home-trust-bar {
+  padding: 2.5rem 1.5rem;
+  background: #12141d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.trust-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: rgba(253, 244, 59, 0.12);
+  border: 1px solid rgba(253, 244, 59, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trust-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-info strong {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.trust-info span {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0.15rem;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .home-signature-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .home-menu-banner {
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-content {
+    flex-direction: column;
+  }
+
+  .banner-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

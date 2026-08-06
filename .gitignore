@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Django
+backend/db.sqlite3
+backend/db.sqlite3-journal
+backend/staticfiles/
+backend/media/
+# Migrations are committed (Django convention)
+# backend/*/migrations/*.py
+# !backend/*/migrations/__init__.py
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Node / Frontend
+node_modules/
+frontend/dist/
+frontend/build/
+frontend/.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Virtual Environment
+venv/
+.venv/
+env/

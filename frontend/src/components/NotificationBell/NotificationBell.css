@@ -1,0 +1,221 @@
+.notification-bell {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.bell-btn {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0.45rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.bell-btn:hover {
+  color: var(--yellow);
+  transform: scale(1.08);
+}
+
+.bell-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--yellow);
+  color: var(--text-dark);
+  font-size: 0.6rem;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  animation: pulse 0.3s ease;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: -80px;
+  width: 360px;
+  max-height: 480px;
+  background: var(--charcoal);
+  border: 1px solid var(--dark-gray);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  animation: fadeIn 0.2s ease;
+  overflow: hidden;
+  z-index: 1001;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.15rem;
+  border-bottom: 1px solid var(--dark-gray);
+  gap: 0.5rem;
+}
+
+.notification-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.notification-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.sound-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sound-toggle-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--yellow);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sound-toggle-btn:hover {
+  background: rgba(255, 204, 0, 0.15);
+  border-color: var(--yellow);
+}
+
+.sound-toggle-btn.muted {
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.test-sound-btn {
+  background: rgba(255, 204, 0, 0.1);
+  border: 1px solid rgba(255, 204, 0, 0.25);
+  color: var(--yellow);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.test-sound-btn:hover {
+  background: var(--yellow);
+  color: #121212;
+}
+
+.mark-all-read {
+  background: none;
+  border: none;
+  color: var(--yellow);
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.mark-all-read:hover {
+  text-decoration: underline;
+}
+
+.notification-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.notification-empty {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.8rem 1.25rem;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.notification-item:hover {
+  background: rgba(253, 244, 59, 0.05);
+}
+
+.notification-item.unread {
+  background: rgba(253, 244, 59, 0.08);
+}
+
+.notification-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-message {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.4;
+  margin-bottom: 0.2rem;
+  word-wrap: break-word;
+}
+
+.notification-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.unread-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--yellow);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+  .notification-dropdown {
+    position: fixed;
+    top: 65px;
+    right: 0.75rem;
+    left: 0.75rem;
+    bottom: auto;
+    width: auto;
+    max-height: 65vh;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.85);
+    z-index: 1005;
+  }
+}

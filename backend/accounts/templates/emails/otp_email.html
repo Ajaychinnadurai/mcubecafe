@@ -1,0 +1,36 @@
+{% extends "emails/base_email.html" %}
+
+{% block title %}M Cube's Cafe - OTP Verification{% endblock %}
+
+{% block content %}
+  <h1 style="color:#FFD700; font-size:22px; margin:0 0 15px; font-weight:700;">
+    🔐 Verify Your Account
+  </h1>
+
+  <p style="margin:0 0 10px;">Hello <strong style="color:#fff;">{{ username }}</strong>,</p>
+
+  <p style="margin:0 0 20px;">
+    Thanks for joining <strong style="color:#FFD700;">M Cube's Cafe</strong>! 
+    Use the 6-digit code below to verify your account.
+  </p>
+
+  <!-- OTP Box -->
+  <table cellpadding="0" cellspacing="0" style="margin:25px auto; background:#1a1a1a; border-radius:12px; border:2px solid #FFD700;">
+    <tr>
+      <td style="padding:18px 40px; text-align:center;">
+        <div style="font-size:36px; font-weight:900; color:#FFD700; letter-spacing:8px; font-family:'Courier New', monospace;">
+          {{ otp }}
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <p style="margin:0 0 5px; font-size:13px; color:#999;">
+    ⏱ This code expires in <strong style="color:#FFD700;">5 minutes</strong>.
+  </p>
+
+  <p style="margin:15px 0 0; font-size:13px; color:#777;">
+    If you didn't create an account with M Cube's Cafe, please ignore this email.
+  </p>
+
+{% endblock %}

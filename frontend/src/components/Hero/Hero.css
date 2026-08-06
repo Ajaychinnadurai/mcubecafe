@@ -1,0 +1,293 @@
+/* ===== HIGH CONTRAST LUXURY HERO SECTION WITH MOBILE UX OPTIMIZATION ===== */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  min-height: 88dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 8rem 2rem 5rem;
+  box-sizing: border-box;
+  background: #0b0c10;
+  color: #ffffff;
+}
+
+/* Background Image Slideshow Container & Crossfade Slides */
+.hero-bg-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), transform 10s ease-out;
+  filter: brightness(0.7) contrast(1.12);
+  transform: scale(1);
+  will-change: opacity, transform;
+}
+
+.hero-bg-slide.active {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+/* Dark Gradient Overlay for Vignette Contrast */
+.hero-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(11, 12, 16, 0.35) 0%, rgba(11, 12, 16, 0.75) 70%, rgba(11, 12, 16, 0.95) 100%),
+              linear-gradient(180deg, rgba(11, 12, 16, 0.4) 0%, rgba(11, 12, 16, 0.88) 100%);
+  z-index: 1;
+}
+
+/* Inset Brand Border Frame Overlay */
+.hero-inset-border-frame {
+  position: absolute;
+  top: 5.5rem;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  border: 1.5px solid rgba(253, 244, 59, 0.4);
+  border-radius: 24px;
+  pointer-events: none;
+  z-index: 2;
+  box-shadow: inset 0 0 25px rgba(253, 244, 59, 0.12), 0 0 30px rgba(253, 244, 59, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Centered Container */
+.hero-container {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Live Status Badge Ticker */
+.hero-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.1rem;
+  background: rgba(11, 12, 16, 0.78);
+  border: 1px solid rgba(253, 244, 59, 0.45);
+  border-radius: 50px;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1.35rem;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(253, 244, 59, 0.2);
+}
+
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--yellow);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--yellow);
+  animation: pulseGlow 1.8s infinite alternate;
+}
+
+.live-badge-divider {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.live-rating-text {
+  color: var(--yellow);
+  font-weight: 800;
+}
+
+/* Headline with High Contrast Readability */
+.hero-title {
+  font-size: clamp(2.3rem, 5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 1.15rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Bright Radiant Glowing Yellow-Gold Text Gradient */
+.hero-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #fffb85 45%, var(--yellow) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--yellow);
+  display: inline-block;
+  padding: 0 4px;
+}
+
+/* Subtitle with High Readability Shadow */
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #f8fafc;
+  margin-bottom: 2rem;
+  max-width: 620px;
+  line-height: 1.6;
+  font-weight: 600;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* CTA Actions */
+.hero-actions {
+  display: flex;
+  gap: 1.1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2.25rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.hero-btn-primary {
+  background: linear-gradient(135deg, var(--yellow) 0%, #f1c40f 100%);
+  color: #0b0c10;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(253, 244, 59, 0.4);
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(253, 244, 59, 0.6);
+  color: #0b0c10;
+}
+
+.hero-btn-primary .btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.hero-btn-primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.hero-btn-secondary {
+  background: rgba(11, 12, 16, 0.75);
+  border: 1.5px solid var(--yellow);
+  color: var(--yellow);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero-btn-secondary:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: #0b0c10;
+  transform: translateY(-2px);
+}
+
+/* Micro Feature Highlights */
+.hero-micro-features {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.micro-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  background: rgba(11, 12, 16, 0.65);
+  padding: 0.45rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(253, 244, 59, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.9); opacity: 0.7; box-shadow: 0 0 5px var(--yellow); }
+  100% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 14px var(--yellow); }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 7rem 1.25rem 3.5rem;
+  }
+
+  .hero-inset-border-frame {
+    top: 4.75rem;
+    bottom: 1rem;
+    left: 0.65rem;
+    right: 0.65rem;
+    border-radius: 16px;
+    border-width: 1px;
+    border-color: rgba(253, 244, 59, 0.35);
+    box-shadow: inset 0 0 15px rgba(253, 244, 59, 0.08), 0 0 20px rgba(253, 244, 59, 0.1);
+  }
+
+  .hero-live-badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.85rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+  }
+
+  .hero-subtitle {
+    font-size: 0.975rem;
+    margin-bottom: 1.65rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .hero-micro-features {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .micro-feature-item {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}

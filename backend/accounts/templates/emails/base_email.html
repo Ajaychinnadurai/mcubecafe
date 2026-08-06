@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}M Cube's Cafe{% endblock %}</title>
+</head>
+<body style="margin:0; padding:0; background-color:#1a1a1a; font-family:'Segoe UI', Arial, Helvetica, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#1a1a1a; min-height:100vh;">
+    <tr>
+      <td align="center" style="padding:30px 15px;">
+        <!-- Main Card -->
+        <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px; width:100%; background-color:#222222; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+          
+          <!-- Yellow Accent Header Bar -->
+          <tr>
+            <td style="height:6px; background:linear-gradient(90deg, #FFD700, #FFC107, #FFD700);"></td>
+          </tr>
+
+          <!-- Logo / Brand Header -->
+          <tr>
+            <td style="padding:35px 40px 20px; text-align:center;">
+              <div style="font-size:32px; font-weight:900; color:#FFD700; letter-spacing:2px; text-transform:uppercase; line-height:1.2;">
+                M CUBE'S
+              </div>
+              <div style="font-size:14px; color:#999; letter-spacing:4px; text-transform:uppercase; margin-top:4px;">
+                Cafe &amp; Restaurant
+              </div>
+            </td>
+          </tr>
+
+          <!-- Divider -->
+          <tr>
+            <td style="padding:0 40px;">
+              <div style="height:1px; background:linear-gradient(90deg, transparent, #444, transparent);"></div>
+            </td>
+          </tr>
+
+          <!-- Content -->
+          <tr>
+            <td style="padding:30px 40px 25px; color:#e0e0e0; font-size:15px; line-height:1.7;">
+              {% block content %}{% endblock %}
+            </td>
+          </tr>
+
+          <!-- Divider -->
+          <tr>
+            <td style="padding:0 40px;">
+              <div style="height:1px; background:linear-gradient(90deg, transparent, #444, transparent);"></div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:25px 40px 35px; text-align:center;">
+              <div style="font-size:13px; color:#666; line-height:1.6;">
+                <strong style="color:#FFD700;">M Cube's Cafe</strong><br>
+                <span>📍 Your Favorite Hangout Spot</span><br>
+                <span style="font-size:11px;">This is an automated message. Please do not reply to this email.</span>
+              </div>
+              <div style="margin-top:15px; font-size:11px; color:#555;">
+                &copy; {% now "Y" %} M Cube's Cafe. All rights reserved.
+              </div>
+            </td>
+          </tr>
+
+          <!-- Yellow Accent Footer Bar -->
+          <tr>
+            <td style="height:4px; background:linear-gradient(90deg, #FFD700, #FFC107, #FFD700);"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

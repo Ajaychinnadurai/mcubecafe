@@ -1,0 +1,217 @@
+/* ===== Location & Contact Section ===== */
+.location-section {
+  background: #0b0c10;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+}
+
+.location-glow {
+  position: absolute;
+  bottom: -50px;
+  left: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(253, 244, 59, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: stretch;
+}
+
+/* Map Card */
+.location-map-card {
+  background: rgba(22, 24, 33, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(253, 244, 59, 0.25);
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.location-map-inner {
+  flex: 1;
+  width: 100%;
+  min-height: 340px;
+  position: relative;
+}
+
+.map-card-footer {
+  padding: 1.5rem 1.75rem;
+  background: rgba(18, 20, 29, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.map-location-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.map-pin-icon {
+  color: var(--yellow);
+  flex-shrink: 0;
+}
+
+.map-location-title h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.map-location-title p {
+  font-size: 0.775rem;
+  color: #8a8f9e;
+  margin: 0.1rem 0 0;
+}
+
+/* Details Info Card */
+.location-info-card {
+  background: rgba(22, 24, 33, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 2.25rem;
+  text-align: left;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.info-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.location-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.detail-icon-box {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 12px;
+  background: rgba(253, 244, 59, 0.12);
+  color: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-text strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+.detail-text p {
+  font-size: 0.875rem;
+  color: #a0a5b5;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.detail-text a {
+  color: var(--yellow);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.detail-text a:hover {
+  text-decoration: underline;
+}
+
+/* Operating Hours Box */
+.hours-glass-box {
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(253, 244, 59, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+.hours-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.clock-icon {
+  color: var(--yellow);
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 0;
+  font-size: 0.875rem;
+  color: #a0a5b5;
+}
+
+.hours-time {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+@media (max-width: 968px) {
+  .location-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .location-section {
+    padding: 4rem 0 3rem;
+  }
+
+  .location-info-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .location-map-card {
+    border-radius: 20px;
+  }
+
+  .location-map-inner {
+    min-height: 260px;
+  }
+
+  .map-card-footer {
+    padding: 1.1rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hours-glass-box {
+    padding: 1.1rem 1.25rem;
+  }
+}

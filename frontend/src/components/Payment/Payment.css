@@ -1,0 +1,239 @@
+.payment-page {
+  padding-top: 6rem;
+  min-height: 100vh;
+  background: var(--black);
+}
+
+.payment-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.payment-card {
+  background: var(--charcoal);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+}
+
+.payment-card h2 {
+  font-size: 1.5rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.payment-card .subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.payment-amount {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--dark-gray);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 2rem;
+}
+
+.payment-amount-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.payment-amount-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--yellow);
+}
+
+/* Stripe Form */
+.stripe-form-container {
+  margin-bottom: 2rem;
+}
+
+.stripe-form-container .card-element-wrapper {
+  padding: 1rem;
+  background: var(--black);
+  border: 1px solid var(--dark-gray);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 1rem;
+}
+
+.stripe-form-container .card-element-wrapper:focus-within {
+  border-color: var(--yellow);
+}
+
+/* UPI Section */
+.upi-section {
+  text-align: center;
+}
+
+.upi-qr-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.upi-qr-code {
+  width: 250px;
+  height: 250px;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--dark-gray);
+}
+
+.upi-details {
+  margin-bottom: 1.5rem;
+}
+
+.upi-details p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.upi-id {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--yellow);
+  font-family: monospace;
+}
+
+.upi-pay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--yellow);
+  color: var(--text-dark);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.upi-pay-btn:hover {
+  background: var(--yellow-light);
+  transform: translateY(-2px);
+}
+
+.upi-manual-confirm {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(253, 244, 59, 0.1);
+  border-radius: var(--border-radius-sm);
+  border: 1px dashed var(--yellow);
+}
+
+.payment-error {
+  color: var(--error);
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(229, 57, 53, 0.1);
+  border-radius: var(--border-radius-sm);
+}
+
+.payment-success {
+  text-align: center;
+  padding: 2rem;
+}
+
+.payment-success-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.payment-success h2 {
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.payment-success p {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.payment-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--dark-gray);
+  color: var(--text-light);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  margin-bottom: 1.5rem;
+}
+
+.back-btn:hover {
+  background: rgba(253, 244, 59, 0.1);
+  color: var(--yellow);
+}
+
+@media (max-width: 480px) {
+  .payment-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .payment-card {
+    padding: 1.25rem;
+  }
+
+  .payment-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .payment-amount {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .payment-amount-value {
+    font-size: 2rem;
+  }
+
+  .upi-qr-code {
+    width: 200px;
+    height: 200px;
+  }
+
+  .upi-pay-btn {
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .upi-manual-confirm {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .payment-success {
+    padding: 1.5rem;
+  }
+
+  .payment-success-icon {
+    font-size: 3rem;
+  }
+
+  .payment-actions {
+    gap: 0.75rem;
+  }
+}
