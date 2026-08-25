@@ -104,7 +104,7 @@ AUTH_USER_MODEL = 'accounts.User'
 
 # CORS
 CORS_ALLOW_ALL_ORIGINS = DEBUG  # Only for development
-CORS_ALLOWED_ORIGINS = os.getenv('FRONTEND_URL', 'http://localhost:5173').split(',')
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173', 'https://mcubecafe-frontend.vercel.app'] + [o.strip() for o in os.getenv('FRONTEND_URL', '').split(',') if o.strip()]
 CORS_ALLOW_CREDENTIALS = True
 
 # REST Framework
@@ -160,7 +160,7 @@ EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True').lower() in ('true', '1', 'yes
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'Mcubes Cafe <noreply@mcubes.com>')
 
 # Frontend URL
-FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:5173')
+FRONTEND_URL = os.getenv('FRONTEND_URL', 'https://mcubecafe-frontend.vercel.app')
 
 # Google OAuth ("Continue with Google")
 # Web application Client ID from https://console.cloud.google.com/apis/credentials
