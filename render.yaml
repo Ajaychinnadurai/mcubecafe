@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: mcubecafe-backend
+    runtime: python
+    region: oregon
+    buildCommand: "./backend/build.sh"
+    startCommand: "gunicorn --chdir backend core.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: "*"
+      - key: FRONTEND_URL
+        value: "https://mcubecafe-frontend.vercel.app"
