@@ -13,18 +13,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'dev-secret-key-change-in-production')
 DEBUG = os.getenv('DJANGO_DEBUG', 'True').lower() in ('true', '1', 'yes')
-raw_allowed_hosts = os.getenv('DJANGO_ALLOWED_HOSTS', '*')
-if raw_allowed_hosts == '*' or '*' in [h.strip() for h in raw_allowed_hosts.split(',')]:
-    ALLOWED_HOSTS = ['*']
-else:
-    hosts = [h.strip() for h in raw_allowed_hosts.split(',') if h.strip()]
-    for default_host in ['mcubecafe-backend.onrender.com', '.onrender.com', 'localhost', '127.0.0.1', 'testserver']:
-        if default_host not in hosts:
-            hosts.append(default_host)
-    ALLOWED_HOSTS = hosts
-
+ALLOWED_HOSTS = ['*']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-USE_X_FORWARDED_HOST = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
