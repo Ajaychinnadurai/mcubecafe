@@ -13,7 +13,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'dev-secret-key-change-in-production')
 DEBUG = os.getenv('DJANGO_DEBUG', 'True').lower() in ('true', '1', 'yes')
-ALLOWED_HOSTS = ['*']
+raw_allowed_hosts = os.getenv('DJANGO_ALLOWED_HOSTS', '*')
+if raw_allowed_hosts == '*' or '*' in [h.strip() for h in raw_allowed_hosts.split(',')]:
+    ALLOWED_HOSTS = ['*']
+else:
+    hosts = [h.strip() for h in raw_allowed_hosts.split(',') if h.strip()]
+    for default_host in ['mcubecafe-backend.onrender.com', '.onrender.com', 'localhost', '127.0.0.1', 'testserver']:
+        if default_host not in hosts:
+            hosts.append(default_host)
+    ALLOWED_HOSTS = hosts
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
 
@@ -104,9 +113,34 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Custom User model
 AUTH_USER_MODEL = 'accounts.User'
 
-# CORS
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS Configuration
 CORS_ALLOW_CREDENTIALS = True
+frontend_url_env = os.getenv('FRONTEND_URL', 'https://mcubecafe-frontend.vercel.app').rstrip('/')
+
+CORS_ALLOWED_ORIGINS = list(set([
+    frontend_url_env,
+    'https://mcubecafe-frontend.vercel.app',
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'http://127.0.0.1:5173',
+    'http://127.0.0.1:3000',
+]))
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.vercel\.app$",
+    r"^http://localhost:\d+$",
+    r"^http://127\.0\.0\.1:\d+$",
+]
+
+CSRF_TRUSTED_ORIGINS = list(set([
+    frontend_url_env,
+    'https://mcubecafe-frontend.vercel.app',
+    'https://mcubecafe-backend.onrender.com',
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'http://127.0.0.1:5173',
+    'http://127.0.0.1:3000',
+]))
 
 # REST Framework
 REST_FRAMEWORK = {

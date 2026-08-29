@@ -294,19 +294,25 @@ export default function Menu() {
   const searchInputRef = useRef(null);
   const addTimeoutRef = useRef(null);
 
+  const fetchMenu = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await api.get('/menu/');
+      const rawData = response.data;
+      const menuData = Array.isArray(rawData)
+        ? rawData
+        : (Array.isArray(rawData?.results) ? rawData.results : (Array.isArray(rawData?.data) ? rawData.data : []));
+      setCategories(menuData);
+    } catch (err) {
+      console.error('Failed to fetch menu:', err);
+      setError('Failed to load menu. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchMenu = async () => {
-      try {
-        setLoading(true);
-        const response = await api.get('/menu/');
-        setCategories(response.data);
-        setError(null);
-      } catch (err) {
-        setError('Failed to load menu. Please try again later.');
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchMenu();
   }, []);
 
@@ -556,7 +562,7 @@ export default function Menu() {
           <div className="menu-error">
             <AlertTriangle size={36} style={{ color: 'var(--yellow)' }} />
             <p>{error}</p>
-            <button className="btn btn-outline" style={{ marginTop: '1rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }} onClick={() => window.location.reload()}>
+            <button className="btn btn-outline" style={{ marginTop: '1rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }} onClick={fetchMenu}>
               <RefreshCw size={16} /> Retry
             </button>
           </div>
