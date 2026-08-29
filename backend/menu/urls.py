@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     # Public
     path('menu/', views.menu_list, name='menu-list'),
+    path('menu/seed/', views.seed_menu_data, name='seed-menu-data'),
     path('menu/<int:item_id>/', views.menu_item_detail, name='menu-item-detail'),
 
     # Admin

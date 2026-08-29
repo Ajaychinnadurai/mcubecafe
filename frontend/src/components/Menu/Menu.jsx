@@ -294,15 +294,29 @@ export default function Menu() {
   const searchInputRef = useRef(null);
   const addTimeoutRef = useRef(null);
 
-  const fetchMenu = async () => {
+  const fetchMenu = async (autoSeedRetry = true) => {
     try {
       setLoading(true);
       setError(null);
       const response = await api.get('/menu/');
       const rawData = response.data;
-      const menuData = Array.isArray(rawData)
+      let menuData = Array.isArray(rawData)
         ? rawData
         : (Array.isArray(rawData?.results) ? rawData.results : (Array.isArray(rawData?.data) ? rawData.data : []));
+
+      if (menuData.length === 0 && autoSeedRetry) {
+        try {
+          await api.get('/menu/seed/');
+          const retryRes = await api.get('/menu/');
+          const retryData = retryRes.data;
+          menuData = Array.isArray(retryData)
+            ? retryData
+            : (Array.isArray(retryData?.results) ? retryData.results : (Array.isArray(retryData?.data) ? retryData.data : []));
+        } catch (seedErr) {
+          console.warn('Auto-seed attempt failed:', seedErr);
+        }
+      }
+
       setCategories(menuData);
     } catch (err) {
       console.error('Failed to fetch menu:', err);

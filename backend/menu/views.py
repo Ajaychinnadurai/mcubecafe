@@ -115,3 +115,21 @@ def admin_category_detail(request, category_id):
     # DELETE — cascade removes the category's menu items
     category.delete()
     return Response({'message': 'Category deleted.'}, status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['GET', 'POST'])
+@permission_classes([AllowAny])
+def seed_menu_data(request):
+    """Public helper to seed menu data on deployed server if empty."""
+    from django.core.management import call_command
+    try:
+        call_command('seed_data')
+        cat_count = MenuCategory.objects.count()
+        item_count = MenuItem.objects.count()
+        return Response({
+            'message': 'Database seeded successfully with Mcubes Cafe menu!',
+            'categories': cat_count,
+            'items': item_count
+        })
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
