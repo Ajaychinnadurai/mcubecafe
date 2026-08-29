@@ -19,6 +19,13 @@ from django.db.models import Prefetch
 @permission_classes([AllowAny])
 def menu_list(request):
     """Public endpoint: return all active categories with their available items (top selling first)."""
+    if not MenuCategory.objects.exists():
+        try:
+            from django.core.management import call_command
+            call_command('seed_data')
+        except Exception as e:
+            print("Auto-seed error:", e)
+
     categories = MenuCategory.objects.filter(is_active=True).prefetch_related(
         Prefetch('items', queryset=MenuItem.objects.filter(is_available=True).order_by('-is_bestseller', 'name'))
     )

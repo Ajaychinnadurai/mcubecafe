@@ -28,9 +28,11 @@ class MenuCategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'slug', 'order', 'items', 'is_active']
 
     def get_items(self, obj):
-        # Public menu only shows available items, so the admin's
-        # "is_available" toggle takes effect on the customer-facing menu.
-        items = obj.items.filter(is_available=True)
+        # Public menu only shows available items. Use prefetched cache if available.
+        if hasattr(obj, '_prefetched_objects_cache') and 'items' in obj._prefetched_objects_cache:
+            items = [item for item in obj.items.all() if item.is_available]
+        else:
+            items = obj.items.filter(is_available=True).order_by('-is_bestseller', 'name')
         return MenuItemSerializer(items, many=True, context=self.context).data
 
 
